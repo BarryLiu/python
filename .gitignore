@@ -1,0 +1,21 @@
+
+# gitignore 添加忽略文件
+
+#忽略 class文件
+*.class
+
+#忽略个人路径
+*.classpath
+
+#忽略war包
+*.war
+
+#每个人的工程目录下面的文件配置
+*.project
+.settings/
+
+#maven  target 编译目录
+target/
+
+
+__pycache__
