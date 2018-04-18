@@ -13,6 +13,7 @@
 #每个人的工程目录下面的文件配置
 *.project
 .settings/
+.pydevproject
 
 #maven  target 编译目录
 target/
