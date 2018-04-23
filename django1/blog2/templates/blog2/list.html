@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>article 主页面</title>
+</head>
+<body>
+    <h1> 查询所有数据取</h1>
+
+    <h3>
+        {% for a in articles %}
+        <a href="article/{{ a.id }}" > {{a.title}} </a>
+        <br>
+        {% endfor %}
+    </h3>
+</body>
+</html>

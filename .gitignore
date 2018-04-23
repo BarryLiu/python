@@ -18,5 +18,8 @@
 #maven  target ±àÒëÄ¿Â¼
 target/
 
+.idea/
 
 __pycache__
+
+__init__.py
