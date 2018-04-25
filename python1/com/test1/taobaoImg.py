@@ -102,13 +102,15 @@ def get_page_link_list_from_index_page(base_page_link):
 
 
 #开始调用
-url = 'http://www.xgyw.cc/Tgod/';
+url = 'https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_15645931130193563595%22%7D&n_type=0&p_from=1';
 html = getHtml(url) 
 
 # third = getThirdUrl(html)
 # print(len(third))
 # for t in third:https://github.com/BarryLiu/python.git
 #     print(t)
+# print(urllib.request.urlopen(url))
+
 
 nodeList = getSecondUrl(html)
 nodeList.remove("/")

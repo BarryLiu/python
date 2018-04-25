@@ -12,5 +12,5 @@ def list(request):
     return render(request,'blog2/list.html',{'articles':articles})
 
 def article_page(request,article_id):
-    article = module.Article.object.get(pk = article_id)
+    article = models.Article.object.get(pk = article_id)
     return  render(request,'blog2/article_page.html',{'article':article })
