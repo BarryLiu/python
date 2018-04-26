@@ -17,7 +17,7 @@ def saveImg(url,fileName):
         code.write(r.content)
 
 # html = requests.get('http://itaren.com')
-html = requests.get('http://www.mmjpg.com/mm/1318')
+html = requests.get('http://www.mmjpg.com/')
 
 # print(html.content)
 
