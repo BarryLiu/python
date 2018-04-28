@@ -17,7 +17,7 @@ sockobj.bind(myhost,myport)
 
 sockobj.listen(128)
 
-while true:
+while True:
 	connection,address = sockobj.accept()
 	print ("connect by ",address)
 	data=connection.recv(1024)
