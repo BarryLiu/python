@@ -12,12 +12,13 @@ from bs4 import BeautifulSoup
 #     print('hellooooo',url,dirpat,filename)
 
 def saveImg(url,fileName):
+    print('下载',url,fileName)
     r = requests.get(url)
     with open(fileName, "wb") as code:
         code.write(r.content)
 
 # html = requests.get('http://itaren.com')
-html = requests.get('http://www.mmjpg.com/')
+html = requests.get('http://ent.ifeng.com/a/20170813/42966665_0.shtml')
 
 # print(html.content)
 
@@ -26,10 +27,9 @@ print(soup.prettify())
 print('---------分割线--------')
 # print(soup.findAll('img'))
 imgs = soup.findAll('img')
+# print("图片数量:",imgs.count())
 for img in imgs:
     img_url=img.get('src')
-
-    print('下载',img_url,img_url.split('/')[-1])
     saveImg(img_url,'img/'+img_url.split('/')[-1])
 
 
