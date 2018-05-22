@@ -102,13 +102,15 @@ def get_page_link_list_from_index_page(base_page_link):
 
 
 #开始调用
-url = 'http://www.xgyw.cc/Tgod/';
+url = 'http://www.mmjpg.com/mm/1329';
 html = getHtml(url) 
 
 # third = getThirdUrl(html)
 # print(len(third))
 # for t in third:https://github.com/BarryLiu/python.git
 #     print(t)
+# print(urllib.request.urlopen(url))
+
 
 nodeList = getSecondUrl(html)
 nodeList.remove("/")

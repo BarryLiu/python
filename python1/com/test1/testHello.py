@@ -21,9 +21,10 @@
 # req = request.urlopen("http://www.baidu.com")
 # print(req.read().decode("utf-8"))
 
-from bs4 import BeautifulSoup
-from urllib import request #
 import re  # 正则表达式模块
+from urllib import request #
+
+from bs4 import BeautifulSoup
 
 html = request.urlopen("http://itaren.com/WebDemos").read().decode("utf-8");
 # print(html)
