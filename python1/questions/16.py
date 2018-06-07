@@ -6,7 +6,7 @@
 
 for i in range(1,10):
     for j in range(1,i+1):
-        print(j,"*",i,"=",(i*j),end="\t")
+        print(j,"*",i,"=",(i*j)) # 最后面应该加上  ,end="\t" ,让其不换行,编译报错就不加了。
     print()
 
 
