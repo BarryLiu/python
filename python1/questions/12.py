@@ -12,18 +12,22 @@
 """
 
 input_value = input("请输入公司利润单位万:\n")
-
+r = 0
 try:
-    inp_val=input(input_value)
-    sum_val=0
+    i = int(input_value)
 
+    arr = [1000000,600000,400000,200000,100000,0]
+    rat = [0.01,0.015,0.03,0.05,0.075,0.1]
 
-    if(inp_val>100)
-        int(inp_val-100)%1
-
+    for idx in range(0,6):
+        if i>arr[idx]:
+            r+=(i-arr[idx])*rat[idx]
+            print (i-arr[idx])*rat[idx]
+            i=arr[idx]
+        pass
 except:
     print("程序异常！")
 finally:
-    print("计算完成！")
+    print("计算完成！结果是:%d"%r)
 
 
