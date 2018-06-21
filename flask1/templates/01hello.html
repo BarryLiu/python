@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01hello html</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='01hello.css') }}"/>
+</head>
+<body>
+    <h1>
+        01hello.html
+    </h1>
+    <h2>{{name}}</h2>
+    <h3><a href="/hello1/name=tom">hello1</a></h3>
+    <h3>
+        <form action="/hello2" method="post">
+            <input type="text" name="name" placeholder="随便输入一个名字">
+            <input type="submit">
+        </form>
+    </h3>
+    <h3><a href="/hello3">redirect</a></h3>
+</body>
+</html>
