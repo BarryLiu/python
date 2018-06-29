@@ -3,5 +3,10 @@ import requests
 
 driver = webdriver.Chrome(executable_path='C:\Program Files (x86)\Google\Chrome\Application\chrome.exe')
 
-driver.get_screenshot_as_png()
-
+# driver.get("http://baidu.com")
+#
+# print("打开成功")
+#
+# driver.get("http://www.baidu.com")
+#
+# print("打开成功2")

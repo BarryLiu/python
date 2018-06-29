@@ -6,6 +6,7 @@ from flask import request
 from flask import abort, redirect, url_for
 
 """
+http://www.pythondoc.com/flask/index.html
 简单使用, 请求,响应,请求传参,重定向,404页面
 """
 
