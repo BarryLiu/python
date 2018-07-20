@@ -1,26 +1,17 @@
 from selenium import webdriver
-import time
+# 引入 ActionChains 类
+from selenium.webdriver.common.action_chains import ActionChains
 
 driver = webdriver.Chrome()
-driver.implicitly_wait(10)
-driver.get("http://www.baidu.com")
+driver.get("https://www.baidu.cn")
 
-# 获得百度搜索窗口句柄
-sreach_windows = driver.current_window_handle
+# 定位到要悬停的元素
+above = driver.find_element_by_link_text("设置")
+# 对定位到的元素执行鼠标悬停操作
+ActionChains(driver).move_to_element(above).perform()
 
-driver.find_element_by_link_text('登录').click()
-driver.find_element_by_link_text("立即注册").click()
+above2 = driver.find_element_by_css_selector('#wrapper > div.bdpfmenu > a.setpref')
 
-# 获得当前所有打开的窗口的句柄
-all_handles = driver.window_handles
-
-# 进入注册窗口
-for handle in all_handles:
-    if handle != sreach_windows:
-        driver.switch_to.window(handle)
-        print('now register window!')
-        time.sleep(2)
-        # ……
+ActionChains(driver).move_to_element(above2).perform()
 
 
-driver.quit()
