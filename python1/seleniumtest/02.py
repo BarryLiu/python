@@ -197,7 +197,7 @@ if __name__ == '__main__':
     if(mod=='zeus'):
         login_zeus(url=url,super_code='supervalid54321')#登录操作
     elif(mod=='homework'):
-        flag = login_homework(url=url,user = User(username='msadmin',password='1234568'))#登录操作
+        flag = login_homework(url=url,user = User(username='msadmin',password='123456'))#登录操作
         if flag == False:
             time.sleep(1)
             login_homework(url=url,user = User(username='msadmin',password='aaa111'))
