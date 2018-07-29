@@ -17,12 +17,10 @@ def hello():
     return 'Hello World!'
 
 # 正常返回数据
+@app.route("/index")
 @app.route("/")
 def index():
     return render_template('01hello.html',name="tom")
-@app.route("/index")
-def index2():
-    return render_template('01hello.html',name="tom2")
 
 # 获取数据返回
 @app.route("/hello1/<name>")
