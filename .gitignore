@@ -25,3 +25,7 @@ __pycache__
 python1/reptile/files/
 
 *.log
+
+build
+dist
+*.spec
