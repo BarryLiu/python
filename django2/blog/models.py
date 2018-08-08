@@ -15,7 +15,6 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'timestamp')
 
 #========================
-models.Field
 # 作者
 class Author(models.Model):
     first_name = models.CharField(max_length=30)
