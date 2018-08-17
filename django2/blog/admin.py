@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from blog.models import Blog, Author, Book, Publisher, BlogAdmin
+from .models import Blog, Author, Book, Publisher, BlogAdmin
 
 admin.site.register(Blog, BlogAdmin)
 

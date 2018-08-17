@@ -7,6 +7,7 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 import time
 import sys,getopt
+import argparse
 
 '''
 登录脚本,
@@ -37,42 +38,6 @@ config = {
                     "meal":"http://192.168.1.19:8801/meal/login"
           }
     }
-
-
-def init_config(argv):
-    '''
-    根据脚本键入的提示找到服务器和模块
-    :param argv: 键盘传入参数
-    :return: 那个服务器,哪个模块
-    '''
-    env = 'test'
-    mod = 'zeus'
-    try:
-        opts, args = getopt.getopt(argv,"e:m:",["environment=","module="])
-    except getopt.GetoptError:
-        print('02.py -e <environment> -m <module> ')
-        print('\tenvironment: 运行环境 test,pre,run default test')
-        print('\tmodule： 模块 homework zeus exam default zeus')
-        sys.exit()
-    for opt, arg in opts:
-        if opt == '-h':
-            print('02.py -e <environment> -m <module> ')
-            print('\tenvironment: 运行环境 test,pre,run default test')
-            print('\tmodule： 模块 homework zeus exam default zeus')
-            sys.exit()
-        elif opt == '-v':
-            print('version: 1.0')
-            os.system("pause")
-            sys.exit()
-        elif opt in ("-e", "--environment"):
-            env = arg
-        elif opt in ("-m", "--module"):
-            mod = arg
-    print('运行环境 ：', env)
-    print('模块 ：', mod)
-    return env,mod
-
-
 
 def login_zeus(url=None,super_code=None):
     '''
@@ -183,12 +148,22 @@ def move_question_manage():
     pass
 
 if __name__ == '__main__':
-    env,mod = init_config(sys.argv[1:])
+    if len(sys.argv) == 1:
+        # sys.argv.append('--help')
+        sys.argv.append('--environment')
+        sys.argv.append('wtk')
+        sys.argv.append('--module')
+        sys.argv.append('bom')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-e', '--environment', required=True, help=('运行环境: test,pre,run,wtk '),default='wtk')
+    parser.add_argument('-m', '--module', required=True, help=('程序名称: homework,zeus,bom'),default='bom')
+    args = parser.parse_args()
+    env = args.environment
+    mod = args.module
     print(env,mod)
-    if env not in ("test","pre","run",'wtk') and mod not in ('homework','zeus') :
-        print("参数错误")
+    if env not in ("test","pre","run",'wtk') or mod not in ('homework','zeus','bom') :
+        print("参数错误 参照 [程序名] -h")
         sys.exit()
-
 
     #mod='homework'
     url = config[env][mod]

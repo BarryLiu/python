@@ -22,7 +22,8 @@ class Author(models.Model):
     email = models.EmailField()
     def __unicode__(self):
         return self.first_name
-
+    def __str__(self):
+        return self.first_name
 
 # 出版商
 class Publisher(models.Model):
@@ -33,6 +34,8 @@ class Publisher(models.Model):
     country = models.CharField(max_length=50)
     website = models.URLField()
     def __unicode__(self):
+        return self.name
+    def __str__(self):
         return self.name
 
 # 书
