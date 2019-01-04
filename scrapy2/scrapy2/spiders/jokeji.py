@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
+from scrapy import Selector
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -38,6 +40,7 @@ class JokejiSpider(scrapy.Spider):
         title = detail.select_one('title').get_text
 
         item = JokejiItem()
+        item.content=content
         item.title = title
         yield item
         pass

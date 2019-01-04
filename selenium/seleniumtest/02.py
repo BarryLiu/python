@@ -148,15 +148,11 @@ def move_question_manage():
     pass
 
 if __name__ == '__main__':
-    if len(sys.argv) == 1:
+    # if len(sys.argv) == 1:
         # sys.argv.append('--help')
-        sys.argv.append('--environment')
-        sys.argv.append('wtk')
-        sys.argv.append('--module')
-        sys.argv.append('bom')
     parser = argparse.ArgumentParser()
-    parser.add_argument('-e', '--environment', required=True, help=('运行环境: test,pre,run,wtk '),default='wtk')
-    parser.add_argument('-m', '--module', required=True, help=('程序名称: homework,zeus,bom'),default='bom')
+    parser.add_argument('-e', '--environment', required=False, help=('运行环境: test,pre,run,wtk '),default='wtk')
+    parser.add_argument('-m', '--module', required=False, help=('程序名称: homework,zeus,bom'),default='bom')
     args = parser.parse_args()
     env = args.environment
     mod = args.module
