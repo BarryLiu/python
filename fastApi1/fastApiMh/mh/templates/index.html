@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+	<body>
+
+		<div data-role="page" id="pageone">
+			<div data-role="header">
+				<a href="index.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">主页</a>
+				<h1>首页</h1>
+				<a href="#" class="ui-btn ui-icon-search ui-btn-icon-left">搜索</a>
+			</div>
+			<div data-role="content">
+
+				<div class="ui-grid-b ui-responsive">
+					<div class="ui-block-c ui-shadow">
+						<a href="detail.html" data-transition="slidefade" class="ui-btn ui-corner-all">
+							<img src="https://manhua.qpic.cn/vertical/0/31_18_48_9cc9207ef30ff63eb5760b08db398bd2_1522493317646.jpg/210"
+								alt="">
+							<br>
+							<h3>脱团大作战</h3>
+							<span>第一列: 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。</span>
+						</a>
+					</div>
+					<div class="ui-block-c ui-shadow">
+						<a href="detail.html" data-transition="slidefade" class="ui-btn ui-corner-all">
+							<img src="https://manhua.qpic.cn/vertical/0/31_18_48_9cc9207ef30ff63eb5760b08db398bd2_1522493317646.jpg/210"
+								alt="">
+							<br>
+							<h3>脱团大作战</h3>
+							<span>第一列: 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。</span>
+						</a>
+					</div>
+					<div class="ui-block-c ui-shadow">
+						<a href="detail.html" data-transition="slidefade" class="ui-btn ui-corner-all">
+							<img src="https://manhua.qpic.cn/vertical/0/31_18_48_9cc9207ef30ff63eb5760b08db398bd2_1522493317646.jpg/210"
+								alt="">
+							<br>
+							<h3>脱团大作战</h3>
+							<span>第一列: 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。</span>
+						</a>
+					</div>
+
+					{% for d in data %}
+					<tr>
+						<td>{{ d.city.province }}</td>
+						<td>{{ d.date }}</td>
+						<td>{{ d.confirmed }}</td>
+						<td>{{ d.deaths }}</td>
+						<td>{{ d.recovered }}</td>
+						<td>{{ d.updated_at }}</td>
+					</tr>
+					{% endfor %}
+				</div>
+
+
+
+
+			</div>
+			<div data-role="footer">
+				<h1>底部文本</h1>
+			</div>
+		</div>
+
+	</body>
+</html>
