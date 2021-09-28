@@ -69,8 +69,9 @@ def comic_detail_tab3():
 
 
 @app_mh.get("/")
-def coronavirus(request: Request,keyword: str = None,skip: int = 0, limit: int = 100): 
-    data = None#m_service.service_home_comic_page(keyword=keyword, skip=skip, limit=limit)
+def coronavirus(request: Request,keyword: str = None,skip: int = 0, limit: int = 10): 
+    data = m_service.service_home_comic_page(keyword=keyword, skip=skip, limit=limit)
+    print('data:',data)
     return templates.TemplateResponse("index.html", {
         "data":data,
         "request": request

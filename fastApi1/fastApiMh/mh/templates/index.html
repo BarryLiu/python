@@ -12,7 +12,18 @@
 			<div data-role="header">
 				<a href="index.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">主页</a>
 				<h1>首页</h1>
-				<a href="#" class="ui-btn ui-icon-search ui-btn-icon-left">搜索</a>
+				<a href="#myPopup1" data-rel="popup" class="ui-btn ui-icon-search ui-btn-icon-left" data-position-to="window">搜索</a>
+				<div data-role="popup" id="myPopup1" class="ui-content">
+				  <p>
+					<form method="post" action="/">
+					  <div class="ui-field-contain">
+						<label for="keyword">输入书名：</label>
+						<input type="text" name="keyword" id="keyword"  placeholder="书名..">       
+					  </div>
+					  <input type="submit" data-inline="true" value="提交">
+					</form>
+				  </p>
+				</div>
 			</div>
 			<div data-role="content">
 
@@ -45,15 +56,8 @@
 						</a>
 					</div>
 
-					{% for d in data %}
-					<tr>
-						<td>{{ d.city.province }}</td>
-						<td>{{ d.date }}</td>
-						<td>{{ d.confirmed }}</td>
-						<td>{{ d.deaths }}</td>
-						<td>{{ d.recovered }}</td>
-						<td>{{ d.updated_at }}</td>
-					</tr>
+					{% for d in data.blockList %}
+						{{ d.title }}
 					{% endfor %}
 				</div>
 

@@ -24,7 +24,22 @@ class m_service():
             "updateTodayList":[]
         }
         return res
-    
+    def service_home_comic_page(keyword: str = None,skip: int = 0, limit: int = 10):
+        mysql = get_a_conn()
+        sql = ""
+        if keyword:
+            sql.join(" and title like %")
+        blockList = mysql.fetchall("select id as id ,img_url as cover,title as title,description as description from t_wwbook where 1=1 limit %s,%s"%(skip,limit));
+       
+        res = {
+            "banner":[],
+            "blockList":blockList,
+            "recommendEveryDay":{},
+            "updateTodayList":[]
+        }
+        return res
+
+
     def service_comic_detail(id:int):
         mysql = get_a_conn()
         detail = mysql.fetchone("select * from t_wwbook where id = %s"%id)
