@@ -30,7 +30,9 @@ class m_service():
         if keyword:
             sql.join(" and title like %")
         blockList = mysql.fetchall("select id as id ,img_url as cover,title as title,description as description from t_wwbook where 1=1 limit %s,%s"%(skip,limit));
-       
+
+
+
         res = {
             "banner":[],
             "blockList":blockList,
@@ -56,9 +58,21 @@ class m_service():
 
     def service_reader_image(item_id):
         mysql = get_a_conn()
-        img_urls = mysql.fetchone("select img_urls from t_wwbook_item where id = %s"%item_id)
+        sql = """
+        select id,
+        (
+            SELECT id from t_wwbook_item where book_id = wi.book_id AND seq < wi.seq ORDER BY seq desc limit 1
+        ) as prev_id,
+        (
+            SELECT id from t_wwbook_item where book_id = wi.book_id AND seq > wi.seq ORDER BY seq ASC limit 1
+        ) as next_id,
+        img_urls from t_wwbook_item wi where id = %s
+        """
+        rtn = mysql.fetchone(sql%item_id)
         #print('img_urls',img_urls)
-        comicPictureList = img_urls['img_urls'].split(',')
+        comicPictureList = rtn['img_urls'].split(',')
         return {
+            "prev_id":rtn["prev_id"],
+            "next_id":rtn["next_id"],
             "comicPictureList":comicPictureList
         }

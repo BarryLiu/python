@@ -37,27 +37,16 @@
 							<span>第一列: 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。</span>
 						</a>
 					</div>
-					<div class="ui-block-c ui-shadow">
-						<a href="detail.html" data-transition="slidefade" class="ui-btn ui-corner-all">
-							<img src="https://manhua.qpic.cn/vertical/0/31_18_48_9cc9207ef30ff63eb5760b08db398bd2_1522493317646.jpg/210"
-								alt="">
-							<br>
-							<h3>脱团大作战</h3>
-							<span>第一列: 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。</span>
-						</a>
-					</div>
-					<div class="ui-block-c ui-shadow">
-						<a href="detail.html" data-transition="slidefade" class="ui-btn ui-corner-all">
-							<img src="https://manhua.qpic.cn/vertical/0/31_18_48_9cc9207ef30ff63eb5760b08db398bd2_1522493317646.jpg/210"
-								alt="">
-							<br>
-							<h3>脱团大作战</h3>
-							<span>第一列: 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。 这是一些文本。</span>
-						</a>
-					</div>
-
 					{% for d in data.blockList %}
-						{{ d.title }}
+                        <div class="ui-block-c ui-shadow">
+						<a href="/mh/detail/{{ d.id }}" data-transition="slidefade" class="ui-btn ui-corner-all">
+							<img src="/staticimgs/{{ d.title }}.jpg"
+								alt="">
+							<br>
+							<h3>{{ d.title }}</h3>
+							<span>{{ d.description }}</span>
+						</a>
+					</div>
 					{% endfor %}
 				</div>
 

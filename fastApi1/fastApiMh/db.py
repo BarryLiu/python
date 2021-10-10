@@ -5,7 +5,7 @@ from pymysql.cursors import DictCursor, Cursor
 # https://blog.csdn.net/qq_34333481/article/details/109385171
 MYSQL_config = {
     'host': "127.0.0.1",
-    'port': 3306,
+    'port': 8889,
     'database': 'mh',
     'user': 'mh',
     'password': 'dream123',

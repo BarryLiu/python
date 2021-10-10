@@ -69,10 +69,36 @@ def comic_detail_tab3():
 
 
 @app_mh.get("/")
-def coronavirus(request: Request,keyword: str = None,skip: int = 0, limit: int = 10): 
+def index(request: Request,keyword: str = None,skip: int = 485, limit: int = 10):
     data = m_service.service_home_comic_page(keyword=keyword, skip=skip, limit=limit)
     print('data:',data)
     return templates.TemplateResponse("index.html", {
         "data":data,
+        "request": request
+    })
+@app_mh.get("/detail/{b_id}")
+def detail(request: Request,b_id: int):
+    book = m_service.service_comic_detail(b_id)
+    c_detail_tab2 = m_service.service_comic_detail_tab2(b_id)
+    print('data:',c_detail_tab2)
+    return templates.TemplateResponse("detail.html", {
+        "data":{
+            "book":book,
+            "categoryList": c_detail_tab2["categoryList"]
+        },
+        "request": request
+    })
+@app_mh.get("/reader/{b_id}/{item_id}")
+def reader(request: Request,b_id:int,item_id: int):
+    c_reader_image = m_service.service_reader_image(item_id=item_id)
+    print('data:',c_reader_image)
+    return templates.TemplateResponse("reader.html", {
+        "data":{
+            "b_id":b_id,
+            "item_id":item_id,
+            "prev_id": c_reader_image["prev_id"],
+            "next_id": c_reader_image["next_id"],
+            "img_urls":c_reader_image["comicPictureList"]
+        },
         "request": request
     })
