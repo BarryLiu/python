@@ -1,3 +1,4 @@
+# coding=utf-8
 import uvicorn
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles

@@ -1,3 +1,4 @@
+# coding=utf-8
 import contextlib
 import pymysql
 from pymysql.cursors import DictCursor, Cursor

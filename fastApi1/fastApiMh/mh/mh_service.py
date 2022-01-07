@@ -1,3 +1,5 @@
+# coding=utf-8
+
 from db import get_a_conn
 
 import random
